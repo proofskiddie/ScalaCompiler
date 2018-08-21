@@ -1,0 +1,140 @@
+run "2 + 2"
+clear
+run
+run "taco"
+run ..\library\miniscala.lib ..\examples\maze.scala
+run ../library/miniscala.lib ../examples/maze.scala
+console
+cd ..
+run "2 + 2"
+console
+reload
+console
+reload
+console
+reload
+console
+reload
+console
+reload
+console
+reload
+console
+clear
+console
+clear
+console
+test
+ls
+run "def printChar(c : Int) = putchar(c);
+run "def printChar(c : Int) = putchar(c);"
+run "def printChar(c : Int) = putchar(c)"
+run "def printChar(c : Int) = putchar(c); printChar(12)"
+console
+clear
+ls
+run "2+2"
+run 2+2
+run "2+2"
+console
+test
+run "def f(x:Int) = 10; 2+2"
+run "def f(x:Int) = 10; def g(x:Int) = 10; 2+2"
+run "def f(x:Int) = 10; def g(x:Int) = f(10); 2+2"
+run "def f(x:Int) = g(10); def g(x:Int) = f(10); 2+2"
+run "def f(x:Int) = 10; def g(x:Int) = f(10); f(12)"
+run "def f(x:Int) = 10; def g(x:Int) = f(10); g(12)"
+run "def f(x:Int) = 10; def g(x:Int) = f(10); g(12) + 2 + 2"
+run "def f(x:Int) = 10; def g(x:Int) = f(10); g(12) + (2 + 2)"
+run "def f(x:Int) = 10; def g(x:Int) = f(10); g(12) + 2 + 2"
+run "def f(x:Int) = 10; def g(x:Int) = f(10); g(12) + (2 + 2)"
+run "def f(x:Int) = 10; def g(x:Int) = f(10); g(12) + (2 + 2)""
+run "def f(x:Int) = 10; def g(x:Int) = f(10); g(12) + (2 + 2)"
+run "def f(x:Int) = 10; def g(x:Int) = f(10); (2 + 2)"
+run "def f(x:Int) = 10; def g(x:Int) = f(10); g(2)"
+run "def f(x:Int) = 10; def g(x:Int) = f(10); f(2)"
+run "def f(x:Int) = 10; def g(x:Int) = f(10); f(2) + g(2)"
+run "def f(x:Int) = 10; def g(x:Int) = f(10); f(2) + (g(2) + 2)"
+run "def f(x:Int) = 10; def g(x:Int) = f(10); f(2) + (2 + 2)"
+run "def f(x:Int) = 10; def g(x:Int) = f(10); f(2) + (g(2) + 2)"
+run "def f(x:Int) = 10; def g(x:Int) = f(10); f(2) + (2 + 2)"
+run "2 + 2"
+run "def f(x:Int) = 10; def g(x:Int) = f(10); f(2) + (2 + 2)"
+run "val x = 1; val v = 1; val y = x + v; putchar(y)"
+run "val x = 1; 0"
+run "val x = 1; val v = 1; val y = x + v; putchar(y)"
+run "val x = 1; val y = 1; x"
+run "val x = 1; val y = 1; purchar(x)"
+run "val x = 1; val y = 1; putchar(x)"
+run "val x = 1; val y = 1; putchar(x); putchar(y)"
+test
+run "val x = 1; val y = 1; putchar(x); putchar(y)"
+test
+run "val x = 1; val y = 1; putchar(x); putchar(y)"
+sb
+run "val x = 1; val y = 1; x"
+run "val x = 1; val y = 1; putchar(x); putchar(y)"
+test
+run "val x = 1; val y = 1; putchar(x); putchar(y)"
+run "val x = 1; val y = 1; val z = x + y; val q = x + y; putchar(z); putchar(q)"
+test
+run "def f (x : Int) = x + 12; f(12)"
+test
+run "def f (x : Int) = x + 12; f(12)"
+test
+run "def f (x : Int) = x + 12; f(12)"
+test
+sbt
+test
+console
+clear
+console
+testOnly
+testOnly PrimitivesOKTests
+test:PrimitivesOKTests
+test test:PrimitivesOKTests
+testOnly AllOKTests
+testOnly test:AllOKTests
+test
+run "if (x == 0) 0 else 1"
+run "if (1 == 0) 0 else 1"
+run "val x =if (1 == 0) 0 else 1"
+run "val x =if (1 == 0) 0 else 1; putchar(x)"
+run "def f(x: Int): Int = if (x == 0) 0 else g(x - 1); def g(y: Int): Int = f(y); def h(z: Int) = z; f(0) + f(0) + f(0)"
+test
+run "val x = 1 + 2; val y = 1 + 2; x + y"
+run "val x = 1 + 2; val y = 1 + 2; putchar(x + y)"
+run "def f (x : Int) = 1 + 2; def g (x : Int) = 1 + 2; putchar(g(12) + f(1))"
+run "val n1 = 2; val n2 = 2; if (n1 == n2) putchar(12) else putchar(1)"
+run "val n1 = 0; val n = n1 * 2; putchar(n)"
+run "val n1 = 1; val n = n1 * 2; putchar(n)"
+test
+run """       def f(x: Int) = x; def g(y: Int) = f(y); def h(z: Int) = g(z);       g(1) + g(2) + g(3) + h(1) + h(2) + h(3) + f(1) + f(2) + f(3)     """
+test
+run """       |val intPrintAsChar = functionCompose[Int,Char,Unit](printChar, (x: Int) => x.toChar);       |val l = listMake8[Int](1, 79, 2, 3, 1, 75, 10, 2);       |listForeach[Int](intPrintAsChar, listFilter[Int]((x: Int) => x >= 10, l))     """
+run """val intPrintAsChar = functionCompose[Int,Char,Unit](printChar, (x: Int) => x.toChar); val l = listMake8[Int](1, 79, 2, 3, 1, 75, 10, 2); listForeach[Int](intPrintAsChar, listFilter[Int]((x: Int) => x >= 10, l))"""
+run """       |val intPrintAsChar = functionCompose[Int,Char,Unit](printChar, (x: Int) => x.toChar);       |val l = listMake8[Int](1, 79, 2, 3, 1, 75, 10, 2);       |listForeach[Int](intPrintAsChar, listFilter[Int]((x: Int) => x >= 10, l))     """
+run "functionCompose[Int,Char,Unit]"
+test
+run "true.isBool"
+test
+run "val one = 1; def f(x: Int) = x + one; f(1) + f(2) + f(3) + one"
+test
+run "val u = getchar(); putchar(u - 0)"
+test
+run "val u = getchar(); putchar(u - u)"
+run "if (true) 1 else 2"
+run "putchar({val v = 1 >= 2; if(v) 'O' else 'K'})"
+run "putchar({val v = 1 >= 2; (if(v) 'O' else 'K').toInt})"
+run "def nl() = putchar(10); putchar({val v = 1 >= 1; (if(v) 'O' else 'K').toInt}); putchar({val v = 1 >= 2; (if(v) 'O' else 'K').toInt; nl()"
+run "def nl() = putchar(10); putchar({val v = 1 >= 1; (if(v) 'O' else 'K').toInt}); putchar({val v = 1 >= 2; (if(v) 'O' else 'K').toInt}); nl()"
+test
+run "def printChar(c: Char) = putchar(c.toInt);  def charRead() = getchar().toChar;  def println() = printChar('\n');  val int0 = '0'.toInt; val int9 = '9'.toInt; def isCharDigit(c: Char) = {   val intC = c.toInt;   int0 <= intC && intC <= int9 };  def charDigitToInt(c: Char) = c.toInt - int0;  def intCharDigit(i: Int) = (i + int0).toChar;  def functionCompose[T,U,V](f: U => V, g: T => U) = (x: T) => f(g(x));  // Integers  def isEven(i: Int) = 0 == (1 & i);  def isOdd(i: Int) = !isEven(i);  def intAbs(i: Int) = if (i < 0) -i else i;  def intSignum(i: Int) = if (i < 0) -1 else { if (i == 0) 0 else 1 };  def intGcd(x: Int, y: Int) = {     def auxGcd(x: Int, y: Int): Int = {       if (0 == y)         x       else         auxGcd(y, x % y)     };     auxGcd(intAbs(x), intAbs(y)) };  def intPow(x: Int, y: Int): Int = {   if (y == 0)     1   else {     if (isEven(y)) {       val t = intPow(x, y/2);       t * t     } else {       x * intPow(x, y - 1)     }   } };  def intRead() = {   def aux(accf: (Int, Int) => Int, acc: Int): Int = {     val c = charRead();     if (isCharDigit(c)) {       aux(accf, accf(10 * acc, charDigitToInt(c)))     } else {       acc     }   };   val c = charRead();   if (c == '-') {     aux((x: Int, y: Int) => x - y, 0)   } else if (isCharDigit(c)) {     aux((x: Int, y: Int) => x + y, charDigitToInt(c))   } else {     0   } };  def printInt(i: Int) = {   if (i < 0) {     printChar('-')   };   def aux(i: Int): Unit = {     if (i <= -10)       aux((i + 9) / 10);     printChar(intCharDigit(-i % 10))   };   aux(if (i < 0) i else -i) };  def pairDeriveEq[T,U](eq1: (T, T) => Boolean, eq2: (U, U) => Boolean) =   (p1: (T, U), p2: (T, U)) => eq1(p1._1, p2._1) && eq2(p1._2, p2._2);  def pairDeriveLt[T,U](lt1: (T, T) => Boolean, lt2: (U, U) => Boolean) =   (p1: (T, U), p2: (T, U)) => lt1(p1._1, p2._1) || (!lt1(p1._1, p2._1) && lt2(p1._2, p2._2));  def listMake1[T](e1: T) = e1::Nil; def listMake2[T](e1: T, e2: T) = e1::listMake1[T](e2); def listMake3[T](e1: T, e2: T, e3: T) = e1::listMake2[T](e2, e3); def listMake4[T](e1: T, e2: T, e3: T, e4: T) = e1::listMake3[T](e2, e3, e4); def listMake5[T](e1: T, e2: T, e3: T, e4: T, e5: T) = e1::listMake4[T](e2, e3, e4, e5); def listMake6[T](e1: T, e2: T, e3: T, e4: T, e5: T, e6: T) = e1::listMake5[T](e2, e3, e4, e5, e6); def listMake7[T](e1: T, e2: T, e3: T, e4: T, e5: T, e6: T, e7: T) = e1::listMake6[T](e2, e3, e4, e5, e6, e7); def listMake8[T](e1: T, e2: T, e3: T, e4: T, e5: T, e6: T, e7: T, e8: T) = e1::listMake7[T](e2, e3, e4, e5, e6, e7, e8);  def listTabulate[T](n: Int, f: Int => T) = {   def aux(i: Int, l: List[T]): List[T] = {     if (i == 0)       l     else       aux(i - 1, f(i - 1)::l)   };   aux(n, Nil) };  def listLength[T](l: List[T]): Int =   if (l.isEmpty)     0   else     1 + listLength[T](l.tail);  def listForeach[T](f: T => Unit, l: List[T]): Unit =   if (!l.isEmpty) {     f(l.head);     listForeach[T](f, l.tail)   };  def listMap[T,U](f: T => U, l: List[T]): List[U] =   if (l.isEmpty)     Nil   else     f(l.head)::listMap[T,U](f, l.tail);  def listFoldLeft[T,U](f: (T, U) => T, z: T, l: List[U]): T =   if (l.isEmpty)     z   else     listFoldLeft[T,U](f, f(z, l.head), l.tail);  def listFoldRight[T,U](f: (U, T) => T, z: T, l: List[U]): T =   if (l.isEmpty)     z   else     f(l.head, listFoldRight[T,U](f, z, l.tail));  def listEvery[T](p: T => Boolean, l: List[T]): Boolean =   l.isEmpty || p(l.head) && listEvery[T](p, l.tail);  def listAny[T](p: T => Boolean, l: List[T]): Boolean =   !l.isEmpty && (p(l.head) || listAny[T](p, l.tail));  def listFilter[T](p: T => Boolean, l: List[T]): List[T] =   listFoldRight[List[T],T]((e: T, r: List[T]) =>  if (p(e)) e::r else r, Nil, l);  def listPartition[T](p: T => Boolean, l: List[T]) =   listFoldRight[(List[T], List[T]),T](     (e: T,  yn: (List[T], List[T])) =>       if (p(e))         (e::yn._1, yn._2)       else         (yn._1, e::yn._2),       (Nil, Nil),       l);  def listTake[T](l: List[T], n: Int): List[T] =   if (0 == n || l.isEmpty)     Nil   else     l.head :: listTake[T](l.tail, n - 1);  def listDrop[T](l: List[T], n: Int): List[T] =   if (0 == n || l.isEmpty)     l   else     listDrop[T](l.tail, n - 1);  def listNth[T](l: List[T], n: Int): T =   listDrop[T](l, n).head;  def listReverse[T](l: List[T]): List[T] =   listFoldLeft[List[T],T]((t: List[T], h: T) => h::t, Nil, l);  def listAppend[T](l1: List[T], l2: List[T]) =   if (l1.isEmpty) l2   else if (l2.isEmpty) l1   else l1.head :: listAppend[T](l1.tail, l2);  def listZip[T,U](l1: List[T], l2: List[U]): List[(T, U)] =   if (l1.isEmpty  || l2.isEmpty)     Nil   else     (l1.head, l2.head) :: listZip[T,U](l1.tail, l2.tail);  def printString(s: String) = {   var idx = 0;   while (idx < s.length) {     printChar(s(idx));     idx = idx + 1   };   () };  def stringConcat(s1: String, s2: String) = {   val s3 = new Array[Char](s1.length + s2.length);   var idx = 0;   while (idx < s1.length) {     s3(idx) = s1(idx);     idx = idx + 1   };   idx = 0;   while (idx < s2.length) {     s3(s1.length + idx) = s2(idx);     idx = idx + 1   };   s3 };  // A PCG random number generator. (Specifically, this is the variant // called XSH RR in the paper, with a 16-bit state and 8-bit output). // See http://www.pcg-random.org/  def makeRNG(seed: Int) = {   val rng = new Array[Int](1);   rng(0) = seed & 0xFFFF;   rng };  def rngGetState(rng: Array[Int]) = rng(0);  def rngSetState(rng: Array[Int], state: Int) = rng(0) = state & 0xFFFF;  def rngRotateRight8(x: Int, y: Int) =   ((x >> y) | (x << (8 - y))) & 0xFF;  def rngStep(rng: Array[Int]) =   rngSetState(rng, rngGetState(rng) * 12829 + 47989);  def rngOutput(rng: Array[Int]) = {   val state = rngGetState(rng);   rngRotateRight8(0xFF & ((state ^ (state >> 5)) >> 5), state >> 13) };  // Return the next 8-bit unsigned integer (0 to 255, included) def rngNextInt8(rng: Array[Int]) = {   val i = rngOutput(rng);   rngStep(rng);   i };  // FIXME: this is hackish, find a better way to do it (probably using // multiple streams, see sample/pcg32x2-demo.c in the PCG source). def rngNextInt(rng: Array[Int]) = {   val b0 = rngNextInt8(rng);   val b1 = rngNextInt8(rng);   val b2 = rngNextInt8(rng);   val b3 = rngNextInt8(rng);   (b0 << 24) | (b1 << 16) | (b2 << 8) | b3 };  def arrayTabulate[T](n: Int, f: Int => T) = {   val v = new Array[T](n);   var i = 0;   while (i < n) {     v(i) = f(i);     i = i + 1   };   v };  def arraySwap[T](v: Array[T], i1: Int, i2: Int) = {   val t = v(i1);   v(i1) = v(i2);   v(i2) = t };  def arrayShuffle[T](v: Array[T], seed: Int) = {   val rng = makeRNG(seed);   val l = v.length;   var i = 0;   while (i < l) {     val j = i + rngNextInt(rng) % (l - i);     arraySwap[T](v, i, j);     i = i + 1   };   () };  def auxArrayPartition[T](v: Array[T], p: T => Boolean, l: Int, h: Int) = {   def loop(l: Int, h: Int): Int = {     if (l >= h)       l     else if (p(v(l)))       loop(l + 1, h)     else if (!p(v(h-1)))       loop(l, h - 1)     else {       arraySwap[T](v, l, h - 1);       loop(l + 1, h + 1)     }   };   loop(l, h) };  // Reorganize the elements of the vector so that all those not // satisfying the predicate [p] are before those that satisfy it. // Return the index of the first element not satisfying [p], or the // length of the vector if all elements satisfy [p]. def arrayPartition[T](v: Array[T], p: T => Boolean) =   auxArrayPartition[T](v, p, 0, v.length);  def arrayFoldLeft[T,U](f: (T,U) => T, z: T, v: Array[U]) = {   var i = 0;   val l = v.length;   var zz = z;   while (i < l) {     zz = f(zz, v(i));     i = i + 1   };   zz };  def arrayForeach[T](f: T => Unit, v: Array[T]) = {   var i = 0;   val l = v.length;   while (i < l) {     f(v(i));     i = i + 1   };   () };  def arraySort[T](v: Array[T], el: (T, T) => Boolean) = {   def qsort(l: Int, h: Int) = {     if (h - l > 0) {        val p = v(h);        val pred = (x: T) => el(x, p);        val m = auxArrayPartition[T](v, pred, l, h);        arraySwap[T](v, m, h);        qsort(l, m - 1);        qsort(m + 1, h)     }   };   qsort(0, v.length - 1) };  def arrayBinarySearch[T](v: Array[T], e: T, el: (T, T) => Boolean) = {   def loop(l: Int, h: Int): Int = {     if (l > h)       -1 -[error] Test miniscala.test.CPSOptimizer_Blackbox.testLibFunctions3 failed: key not found: fun$1_2  l     else {       val m = l + (h - l) / 2;       val me = v(m);       if (el(e, me))         loop(l, m - 1)       else if (el(me, e))         loop(m + 1, h)       else         m     }   };   loop(0, v.length - 1) };  def arrayToList[T](v: Array[T]) = {   def loop(i: Int): List[T] = {     if (i == -1)       Nil     else       v(i)::loop(i - 1)   };   loop(v.length - 1) };  def listToArray[T](l: List[T]) = {   val n = listLength[T](l);   val v = new Array[T](n);   def loop(i: Int, l: List[T]) = {     if (i < n) {       v(i) = l.head;       loop(i + 1, l.tail)     }   };   loop(0, l);   v };"
+test
+run """"       def f(x: Int) = if (x > 0) g(x) else x;       def g(x: Int) = f(x - 1);       putchar('O'.toInt);       if (f(5) == 0) putchar('K'.toInt) else putchar('O'.toInt)     """
+run """       def f(x: Int) = if (x > 0) g(x) else x;       def g(x: Int) = f(x - 1);       putchar('O'.toInt);       if (f(5) == 0) putchar('K'.toInt) else putchar('O'.toInt)     """
+run """       def intFunGen() = {         putchar('O'.toInt); (i: Int) => i + 1       };       def intGen() = {         putchar('K'.toInt); 0       };       intFunGen()(intGen())       ""
+run """       def intFunGen() = {         putchar('O'.toInt); (i: Int) => i + 1       };       def intGen() = {         putchar('K'.toInt); 0       };       intFunGen()(intGen())       """
+test
+run "if (true) 1 else 2"
+clean

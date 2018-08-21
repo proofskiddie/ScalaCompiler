@@ -1,0 +1,230 @@
+exit
+console
+clear
+console
+clear
+console
+run "var x = 12; x = 5"
+run "val dummy x = x + 1"
+console
+clear
+console
+ls
+console
+vim build.sbt
+ls
+console
+clear
+console
+reload
+console
+test
+console
+clear
+test
+test SemanticAnalyzerTest
+test --help
+test:compile
+test:SemanticAnalyzer
+test:SemanticAnalyzerTest
+test-quick
+test
+test-only
+test-only *RedSuite
+compile "test-only FunSuite"
+compile "test-only *FunSuite"
+compile
+test-only:*FunSuite
+test-only::*FunSuite
+test-only:
+test-only
+run org.scalatest.FunSuite
+test org.scalatest.FunSuite
+help
+projects
+grep
+plugins
+testOnly project3.SemanticAnalyzerTest
+console
+testOnly project3.SemanticAnalyzerTest
+console
+clear
+testOnly project3.SemanticAnalyzerTest
+reload
+console
+run "if (true) val x = 5; x"
+run "val x = 5; if (true) x = 5"
+run "var x = 5; if (true) x = 5"
+run "var x = 5; if (true) x = 5 else x = 4"
+console
+run "var x = 1; x"
+console
+run "var x = 5; if (true) x = 10"
+console
+clear
+run "var x = 5; if (true) x = 10"
+reload
+run "var x = 5; if (true) x = 10"
+run "while(true) { val x = 5; x } x"
+run "while(true) { val x = 5; x } x = 5"
+run "while(true) { val x = 5; x } var x = 5; x"
+run "while(true) { val x = 5; x }; var x = 5; x"
+run "while(true) { val x = 5; () d}; var x = 5; x"
+run "while(true) { val x = 5; () }; var x = 5; x"
+run "Lit(true)"
+run "true"
+console
+reload
+console
+reload
+console
+reload
+console
+testOnly project3.ParserTest
+help
+console 
+reload
+console
+reload
+console
+reload
+console
+reload
+console
+reload
+console
+reload
+console
+reload
+console
+reload
+console
+reload
+console
+reload
+console
+consle
+console
+reload
+console
+reload
+console
+reload
+console
+reload
+console
+reload
+console
+reload
+console
+reload
+console
+reload
+console
+reload
+console
+reload
+console
+reload
+console
+reload
+console
+reload
+console
+(List(1,2,3) zip List(1,2,3))
+console
+run "def a():Int = if ( 1 > 2) 1 else 4; def b(r: Int):Int = a(); b(1)"
+console
+run "def a():Int = if ( 1 > 2) 1 else 4; def b(r: Int):Int = a(); b(1)"
+console
+run "def a():Int = if ( 1 > 2) 1 else 4; def b(r: Int):Int = a(); b(1)"
+run "def a():Int = if ( 1 > 2) 1 else 4; def b(r: Int):Int = a(); b(1)" st_int
+console
+reload
+console
+run "def a():Int = if ( 1 > 2) 1 else 4; def b(r: Int):Int = a(); b(1)" st_int
+console
+reload
+console
+run "def a():Int = if ( 1 > 2) 1 else 4; def b(r: Int):Int = a(); b(1)" st_int
+console
+run "def a():Int = if ( 1 > 2) 1 else 4; def b(r: Int):Int = a(); b(1)" st_int
+run "def a():Int = if ( 1 > 2) 1 else 4; def b(r: Int):Int = a(); b(1)" 
+run "def a():Int = if ( 1 > 2) 1 else 4; def b(r: Int):Int = a(); b(1)" x86 
+run "if(1 == 2) 3 else 4" x86 
+run "if(2 == 2) 3 else 4" x86 
+console
+run "def a():Int = if ( 1 > 2) 1 else 4; def b(r: Int):Int = a(); b(1)" x86 
+run "def b(r: Int):Int = r; b(1)" x86 
+run "def b(r: Int):Int = 5; b(1)" x86 
+console
+clear
+run "def b(r: Int):Int = 5; b(1)" x86 
+run "def b(r: Int):Int = 5; b(1)"
+run "def b(r: Int):Int = 5; b(1)" st_int
+console
+reload
+console
+run "def b(r: Int):Int = 5; b(1)"
+console
+run "def b(r: Int):Int = 5; b(1)"
+run "def b(r: Int):Int = r; b(1)"
+run "def b(r: Int):Int = 4; b(1)"
+run "def b(r: Int):Int = 4; b(1,1)"
+run "def b(r j: Int):Int = 4; b(1,1)"
+run "def b(r, j: Int):Int = 4; b(1,1)"
+run "def b(r : Int, j: Int):Int = 4; b(1,1)"
+run "def b(r : Int, j: Int):Int = r + j; b(1,1)"
+run "def a():Int = if ( 1 > 2) 1 else 4; def b(r: Int):Int = a(); b(1)" x86 
+run "def a(r : Int):Int = if ( r > 2) 1 else 4; def b(r: Int):Int = a(r); b(1)" x86 
+run "if ( 1 > 2) 1 else 4" x86 
+run "def a(r : Int):Int = if ( r > 2) 1 else 4; def b(r: Int):Int = a(r); b(1)" x86 
+1
+run "def a(r : Int):Int = if ( r > 2) 1 else 4; def b(r: Int):Int = a(r); b(1)" x86 
+run "if ( 1 > 2) 1 else 4" x86 
+test 
+run "putchar(72);0"
+run "putchar(72);0" x86
+run "putchar(72);0" st_int
+run "putchar(72);0" 
+run "if ( 1 > 2) 1 else 4" x86 
+run "putchar("H".toInt);0" 
+run "putchar(("H".toInt));0" 
+run s"putchar(${"H".toInt});0" 
+run "putchar(72);0" 
+run "def f(x:Int) = { val arr = new Array[Int](x); var i = 0; var sum = 0; while(i < x) { sum = sum + arr(i); i = i + 1};sum};f(3)"
+def f(x: Int) = {
+  val arr = new Array[Int](x);
+  var i = 0;
+  var sum = 0;
+  while(i < x) {
+    sum = sum + arr(i);
+    i = i + 1
+  };
+  sum
+};
+run "sample/fun.scala"
+run "sample/fun.scala" st_int
+run "sample/fun.scala" x86
+run "val x = new Array[Int](10); x" x86
+run "sample/fun.scala" x86
+run "val x = new Array[Int](10); x" x86
+run "val x = new Array[Int](10); x(1)" x86
+run "var arr = new Array[Int](4); arr(2) = 7; var x = arr(2); x" st_int
+run "var arr = new Array[Int](4); arr(2) = 7; var x = arr(2); x"
+run "var arr = new Array[Int](4); arr(2) = 7; var x = arr(2); x" st_int
+run "var arr = new Array[Int](4); arr(2) = 7; x" st_int
+run "var arr = new Array[Int](4); arr(2) = 7; var x = arr(2); x" st_int
+run "var arr = new Array[Int](4); arr(2) = 7; x" st_int
+run "var arr = new Array[Int](4); arr(2) = 7; x" 
+run "var arr = new Array[Int](4); arr(2) = 7; arr(1)" 
+run "var arr = new Array[IntType](4); arr(2) = 7; arr(1)" 
+run "var arr = new Array[Int](4); arr(2) = 7; arr(1)" 
+run "if (1 == 1) 1 else 1" 
+run "var arr = new Array[Int](4); arr(2) = 7; arr(1)" 
+run "val arr = new Array[Int](4); arr(2) = 7; arr(1)" 
+clear
+run "var arr = new Array[Int](4); arr(2) = 7; arr(1)" 
+run "if ( 1 > 2) 1 else 4" x86 
+run "var arr = new Array[Int](4); arr(2) = 7; arr(1)" 
+clean

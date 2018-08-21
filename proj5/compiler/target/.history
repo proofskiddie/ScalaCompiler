@@ -1,0 +1,125 @@
+console
+clear
+console
+clear
+ls
+console
+reload
+console
+reload
+console
+clear
+ls
+console
+run "1"
+console
+Seq(1,2,3).toSet
+console
+run "if (1) 2 else 3
+run "if (1) 2 else 3"
+run "if (true) 2 else 3"
+console
+clear
+run "def f(x : Int) = x"
+run "def f(x : Int) = x; 1"
+console
+clear
+run "def f(x : Int) = x; 1"
+console
+run "def f(x : Int) = x; 1"
+run "12"
+run "def f(x : Int) = def g (y : Int) = x + y;1; 1"
+run "def f(x : Int) =  (y : Int) => x + y; 1"
+run "def f(x : Int) =  (y : Int) => x + y; f(2)"
+run "def f(x : Int) =  (y : Int) => x + y; f(2)(1)"
+run "val inc = makeAdder(1); inc(42)"
+run "def makeAdder(x:Int) = (y : Int) => x + y; makeAdder(42)"
+run "def makeAdder(x:Int) = (y : Int) => x + y; val inc = makeAdder(1); inc(42)"
+run "def f(x : Int) =  (y : Int) => x + y; 1"
+console
+run "def f(x : Int) =  (y : Int) => x + y; 1"
+console
+run "def f(x : Int) =  (y : Int) => x + y; 1"
+run "def makeAdder(x:Int) = (y : Int) => x + y; val inc = makeAdder(1); inc(42)"
+run "def f(x : Int) =  (y : Int) => x + y; 1"
+run "def makeAdder(x:Int) = (y : Int) => x + y; val inc = makeAdder(1); inc(42)"
+test
+run "def makeAdder(x:Int) = (y : Int) => x + y; val inc = makeAdder(1); inc(42)"
+run "def f (x : Int) = g(x); def g (x : Int) = 1; f(3)"
+run "def makeAdder(x:Int) = (y : Int) => x + y; val inc = makeAdder(1); inc(42)"
+run "if (2==4) 1 else 2"
+run "def makeAdder(x:Int) = (y : Int) => x + y; val inc = makeAdder(1); inc(42)"
+run "def f (x : Int) = g(x); def g (x : Int) = 1; f(3)"
+test
+run "def f (x : Int) = g(x); def g (x : Int) = 1; f(3)"
+test
+run "3 + 4"
+run "putchar('a')"
+run "putchar('a'.toInt)"
+test
+run "putChar(10)"
+run "putchar(10)"
+run "1.isBool"
+      |def nl() = putchar(10);
+      |putchar({ val v = 3.isUnit; (if (v) 'K' else 'O').toInt });
+      |putchar({ val v = ().isUnit; (if (v) 'K' else 'O').toInt });
+      |nl()
+run "      |def nl() = putchar(10);       |putchar({ val v = 3.isUnit; (if (v) 'K' else 'O').toInt });       |putchar({ val v = ().isUnit; (if (v) 'K' else 'O').toInt });       |nl() "
+run "def nl() = putchar(10);putchar({ val v = 3.isUnit; (if (v) 'K' else 'O').toInt });putchar({ val v = ().isUnit; (if (v) 'K' else 'O').toInt });nl() "
+deff w_1(rc_1, env_1) = {   vall i_1 = 21;   vall t_1 = 1;   valp t_2 = i_1 >> t_1;   valp v_1 = byte-write(t_2);   rc_1(v_1) }; vall t_22 = 1; valp nl = block-alloc-202(t_22); vall t_21 = 0; valp t_3 = block-set(nl, t_21, w_1); defc ic_4(v_3) = {   valp v = id(v_3);   defc ic_3(v_5) = {     vall t_4 = 2;     valp v_4 = v_5 >> t_4;     vall t_5 = 1;     valp t_6 = v_4 >> t_5;     valp v_2 = byte-write(t_6);     valp x$1 = id(v_2);     defc ic_2(v_7) = {       valp v = id(v_7);       defc ic_1(v_9) = {         vall t_7 = 2;         valp v_8 = v_9 >> t_7;         vall t_8 = 1;         valp t_9 = v_8 >> t_8;         valp v_6 = byte-write(t_9);         valp x$2 = id(v_6);         defc rc_2(r_1) = {           vall c0_1 = 1;           vall t_10 = 1;           valp t_11 = c0_1 >> t_10;           t_11         };         vall t_12 = 0;         valp t_13 = block-get(nl, t_12);         t_13(rc_2, nl)       };       defc tc_1() = { vall i_2 = 606; ic_1(i_2) };       defc fc_1() = { vall i_3 = 638; ic_1(i_3) };       vall i_4 = 10;       if (v != i_4) tc_1 else fc_1     };     defc tc_2() = { vall i_5 = 26; ic_2(i_5) };     defc fc_2() = { vall i_6 = 10; ic_2(i_6) };     vall t_14 = 2;     vall t_15 = 15;     valp t_16 = i_7 & t_15;     vall t_17 = 2;     if (t_16 = t_17) tc_2 else fc_2   };   defc tc_3() = { vall i_8 = 606; ic_3(i_8) };   defc fc_3() = { vall i_9 = 638; ic_3(i_9) };   vall i_10 = 10;   if (v != i_10) tc_3 else fc_3 }; defc tc_4() = { vall i_11 = 26; ic_4(i_11) }; defc fc_4() = { vall i_12 = 10; ic_4(i_12) }; vall i_13 = 7; vall t_18 = 15; valp t_19 = i_13 & t_18; vall t_20 = 2; if (t_19 = t_20) tc_4 else fc_4
+run "def nl() = putchar(10);putchar({ val v = 3.isUnit; (if (v) 'K' else 'O').toInt });putchar({ val v = ().isUnit; (if (v) 'K' else 'O').toInt });nl() "
+run "4 + 1"
+run "def f () = { def g () = 1; g() }; 1"
+test
+run library/lists.scala
+run "../library/lists.scala"
+run ../library/lists.scala ../examples/test.scala
+run ../library/miniscala.lib ../examples/test.scala
+run last compile:run
+run ../library/miniscala.lib ../examples/test.scala
+last compiler:run
+last compile:run
+run ../library/miniscala.lib ../examples/test.scala
+last compile:run
+run ../library/miniscala.lib ../examples/test.scala
+run ../library/miniscala.lib ../examples/test.scala > temp.txt
+ls
+run ../library/miniscala.lib ../examples/test.scala 
+run ../library/miniscala.lib ../examples/test.scala > temp.txt
+run ../library/miniscala.lib ../examples/test.scala 
+run "def make[T]() = 1; 1"
+run "val l = listMake3[Char]('O', 'K', '\n'); 1"
+run "def listMake1[T](e1: T) = e1::Nil; val l = listMake3[Char]('O'); 1"
+run "def listMake1[T](e1: T) = e1::Nil; val l = listMake1[Char]('O'); 1"
+test
+      if (putchar('O'.toInt) == ()) {         if (putchar('K'.toInt) == ()) {           if (putchar(10) == ()) // don't optimize this away!             true           else             true         } else {           true         }       } else {         true       }
+run      "if (putchar('O'.toInt) == ()) {         if (putchar('K'.toInt) == ()) {           if (putchar(10) == ()) // don't optimize this away!             true           else             true         } else {           true         }       } else {         true       }"
+run "if (putchar('O'.toInt) == ()) 1 else 3"
+test
+clean
+run "def succ(x:Int) = x + 1; def twice(x : Int) = x + x; def fc[T,U,V](f : U => V, g : T => U) = (x : T) => f(g(x)); fc[Int,Int,Int](succ, twice)(39)"
+run "def succ(x:Int) = x + 1; def twice(x : Int) = x + x; def fc[T,U,V](f : U => V, g : T => U) = (x : T) => f(g(x)); putchar(fc[Int,Int,Int](succ, twice)(39))"
+test
+run """       if (putchar('O'.toInt) == ()) {         if (putchar('K'.toInt) == ()) {           if (putchar(10) == ()) // don't optimize this away!             true           else             true         } else {           true         }       } else {         true       }     """
+run "if (putchar('O'.toInt) == ()) 1 else 0"
+run "if (putchar('O'.toInt) == ()) {1} else 0"
+run """       if (putchar('O'.toInt) == ()) {         if (putchar('K'.toInt) == ()) {           if (putchar(10) == ()) // don't optimize this away!             true           else             true         } else {           true         }       } tacoelse {         true       }     """
+run "if (putchar('O'.toInt)==()){ if (putchar('K'.toInt) == ()) 1 else 2 } else 1"
+run "if (putchar('O'.toInt)==()){ if (putchar('K'.toInt) == ()) 1 else 2 } else putchar('K'.toInt)"
+run "if (putchar('O'.toInt)==()){ if (putchar('K'.toInt) == ()) () else () } else putchar('K'.toInt)"
+run "if (putchar('O'.toInt)==()){ if (putchar('K'.toInt) == ()) () else () } else {putchar('K'.toInt)}"
+run "if (putchar('O'.toInt)==()){ if (putchar('K'.toInt) == ()) 1 else 2 } else 1"
+test
+run "if (2 == 3) 2 else 1"
+run "if (2 == 3) putchar('O'.toInt) else 1"
+run "if (2 == 3) putchar('O'.toInt) else ()"
+run "if (2 == 3) putchar('O'.toInt) else putchar('K'.toInt)"
+run "if (3 == 3) putchar('O'.toInt) else putchar('K'.toInt)"
+run "if (putchar('O'.toInt)==()){ if (putchar('K'.toInt) == ()) 1 else 2 } else 1"
+run "if (putchar('O'.toInt)==()) if (putchar('K'.toInt) == ()) 1 else 2 else 1"
+test
+run "if (putchar('O'.toInt)==()) if (putchar('K'.toInt) == ()) 1 else 2 else 1"
+test
+clean
+test
+clean

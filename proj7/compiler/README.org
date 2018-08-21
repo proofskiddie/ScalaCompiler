@@ -1,0 +1,44 @@
+#+OPTIONS: toc:nil author:nil
+#+TITLE: The L₃ compiler
+
+* Introduction
+
+This directory contains the source code of the L₃ compiler, written in Scala. All interactions with the compiler should be done with [[http://www.scala-sbt.org/][=sbt=]], a Scala build tool.
+
+=Sbt= can either be run in interactive mode, by simply typing =sbt= and then entering commands at the prompt, or in batch mode. The following sections use batch mode for illustration, but in practice interactive mode is often to be preferred as it avoids repeated startup of =sbt= itself.
+
+* Compiling
+
+To compile the compiler, use the =compile= command:
+: $ sbt compile
+(the dollar sign =$= represents the shell prompt).
+
+* Testing
+
+To test the compiler (and compile it beforehand, if necessary), use the =test= command:
+: $ sbt test
+
+* Running
+
+To run the compiler (and compile it beforehand, if necessary), use the =run= command, followed by arguments for the compiler, e.g.:
+: $ sbt 'run ../library/miniscala.lib ../examples/pascal.scala'
+
+The compiler accepts a list of files to compile as arguments. These files can have one of the following extensions:
+
+  - =.scala= :: A normal source file, containing MiniScala code.
+
+  - =.lib= :: A module file, containing a list of other files, which must also be either source files (with a =.scala= extension) or other module files (with a =.lib= extension).
+
+Modules are expanded recursively, until only =.scala= files remain. Then, duplicate file names are removed, with only the first occurrence kept. Finally, this list of files is fed to the compiler.
+
+As an example, assume that the file =miniscala.lib= references =characters.lib= and =integers.lib=, and that =characters.lib= references =characters.scala= while =integers.lib= references both =characters.lib= and =integers.scala=. Then, a command line consisting of =lib.lib= and =pascal.scala= is expanded as follows:
+
+  1. =miniscala.lib= =pascal.scala= (original command line),
+
+  2. =characters.lib= =integers.lib= =pascal.scala= (expansion of =lib.lib=),
+
+  3. =characters.scala= =characters.lib= =integers.scala= =pascal.scala= (expansion of =characters.lib= and =integers.lib=),
+
+  4. =characters.scala= =characters.scala= =integers.scala= =pascal.scala= (expansion of the second =characters.lib=),
+
+  5. =characters.scala= =integers.scala= =pascal.scala= (removal of duplicates).

@@ -1,0 +1,16 @@
+#+OPTIONS: toc:nil author:nil
+#+TITLE: The MiniScala project
+
+* Introduction
+
+Welcome to the MiniScala project, composed of an MiniScala compiler, a virtual machine, a library and a few example programs. The directories are laid out as follows:
+
+  - =compiler= :: contains the source code of the MiniScala compiler,
+
+  - =vm= :: contains the source code of the MiniScala virtual machine,
+
+  - =library= :: contains the source code of the MiniScala library,
+
+  - =examples= :: contains a few example MiniScala programs and benchmarks.
+
+Most of these directories contain a =README= file with further information.

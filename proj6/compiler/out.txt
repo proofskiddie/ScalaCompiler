@@ -1,0 +1,1384 @@
+"C:\Users\skidd9\.sbt\preloaded\org.scala-sbt\sbt\"1.0.0"\jars\sbt.jar"
+[info] Loading global plugins from C:\Users\skidd9\.sbt\0.13\plugins
+[info] Loading project definition from C:\Users\skidd9\Desktop\Compilers\proj6\compiler\project
+[info] Set current project to CMScala-compiler (in build file:/C:/Users/skidd9/Desktop/Compilers/proj6/compiler/)
+[info] Running miniscala.Main ../library/miniscala.lib ../examples/test.scala
+
+
+--before--
+
+deff printChar(rc_1, c) = {
+  valp v_2 = char->int(c);
+  valp v_1 = byte-write(v_2);
+  rc_1(v_1)
+}; 
+deff charRead(rc_2) = {
+  valp v_4 = byte-read();
+  valp v_3 = int->char(v_4);
+  rc_2(v_3)
+}; 
+deff println(rc_3) = { vall i_1 = '
+'; printChar(rc_3, i_1) };
+vall i_2 = '0';
+valp v_5 = char->int(i_2);
+valp int0 = id(v_5);
+vall i_3 = '9';
+valp v_6 = char->int(i_3);
+valp int9 = id(v_6);
+deff isCharDigit(rc_4, c) = {
+  valp v_7 = char->int(c);
+  valp intC = id(v_7);
+  defc tc_2() = {
+    defc tc_1() = { vall i_4 = true; rc_4(i_4) };
+    defc fc_1() = { vall i_5 = false; rc_4(i_5) };
+    if (intC <= int9) tc_1 else fc_1
+  };
+  defc fc_2() = { vall i_6 = false; rc_4(i_6) };
+  if (int0 <= intC) tc_2 else fc_2
+}; 
+deff charDigitToInt(rc_5, c) = {
+  valp v_9 = char->int(c);
+  valp v_8 = v_9 - int0;
+  rc_5(v_8)
+}; 
+deff intCharDigit(rc_6, i) = {
+  valp v_11 = i + int0;
+  valp v_10 = int->char(v_11);
+  rc_6(v_10)
+}; 
+deff functionCompose(rc_7, f, g) = {
+  deff fun$1(rc_8, x) = { defc rc_9(r_1) = { f(rc_8, r_1) }; g(rc_9, x) };
+  rc_7(fun$1)
+}; 
+deff isEven(rc_10, i) = {
+  defc tc_3() = { vall i_7 = true; rc_10(i_7) };
+  defc fc_3() = { vall i_8 = false; rc_10(i_8) };
+  vall i_9 = 0;
+  vall i_10 = 1;
+  valp v_12 = i_10 & i;
+  if (i_9 == v_12) tc_3 else fc_3
+}; 
+deff isOdd(rc_11, i) = {
+  defc tc_4() = { vall i_11 = false; rc_11(i_11) };
+  defc fc_4() = { vall i_12 = true; rc_11(i_12) };
+  defc rc_12(r_2) = { vall i_13 = false; if (r_2 != i_13) tc_4 else fc_4 };
+  isEven(rc_12, i)
+}; 
+deff intAbs(rc_13, i) = {
+  defc tc_5() = { valp v_13 = -i; rc_13(v_13) };
+  defc fc_5() = { rc_13(i) };
+  vall i_14 = 0;
+  if (i < i_14) tc_5 else fc_5
+}; 
+deff intSignum(rc_14, i) = {
+  defc tc_6() = { vall i_15 = 1; valp v_14 = -i_15; rc_14(v_14) };
+  defc fc_7() = {
+    defc tc_7() = { vall i_16 = 0; rc_14(i_16) };
+    defc fc_6() = { vall i_17 = 1; rc_14(i_17) };
+    vall i_18 = 0;
+    if (i == i_18) tc_7 else fc_6
+  };
+  vall i_19 = 0;
+  if (i < i_19) tc_6 else fc_7
+}; 
+deff intGcd(rc_15, x, y) = {
+  deff auxGcd(rc_16, x, y) = {
+    defc tc_8() = { rc_16(x) };
+    defc fc_8() = { valp v_15 = x % y; auxGcd(rc_16, y, v_15) };
+    vall i_20 = 0;
+    if (i_20 == y) tc_8 else fc_8
+  };
+  defc rc_18(r_3) = {
+    defc rc_17(r_4) = { auxGcd(rc_15, r_3, r_4) };
+    intAbs(rc_17, y)
+  };
+  intAbs(rc_18, x)
+}; 
+deff intPow(rc_19, x, y) = {
+  defc tc_9() = { vall i_21 = 1; rc_19(i_21) };
+  defc fc_10() = {
+    defc tc_10() = {
+      vall i_22 = 2;
+      valp v_16 = y / i_22;
+      defc rc_20(r_5) = { valp t = id(r_5); valp v_17 = t * t; rc_19(v_17) };
+      intPow(rc_20, x, v_16)
+    };
+    defc fc_9() = {
+      vall i_23 = 1;
+      valp v_19 = y - i_23;
+      defc rc_21(r_6) = { valp v_18 = x * r_6; rc_19(v_18) };
+      intPow(rc_21, x, v_19)
+    };
+    defc rc_22(r_7) = { vall i_24 = false; if (r_7 != i_24) tc_10 else fc_9 };
+    isEven(rc_22, y)
+  };
+  vall i_25 = 0;
+  if (y == i_25) tc_9 else fc_10
+}; 
+deff intRead(rc_23) = {
+  deff aux(rc_24, accf, acc) = {
+    defc rc_28(r_8) = {
+      valp c = id(r_8);
+      defc tc_11() = {
+        vall i_26 = 10;
+        valp v_20 = i_26 * acc;
+        defc rc_26(r_10) = {
+          defc rc_25(r_9) = { aux(rc_24, accf, r_9) };
+          accf(rc_25, v_20, r_10)
+        };
+        charDigitToInt(rc_26, c)
+      };
+      defc fc_11() = { rc_24(acc) };
+      defc rc_27(r_11) = {
+        vall i_27 = false;
+        if (r_11 != i_27) tc_11 else fc_11
+      };
+      isCharDigit(rc_27, c)
+    };
+    charRead(rc_28)
+  };
+  defc rc_33(r_12) = {
+    valp c = id(r_12);
+    defc tc_12() = {
+      deff fun$2(rc_29, x, y) = { valp v_21 = x - y; rc_29(v_21) };
+      vall i_28 = 0;
+      aux(rc_23, fun$2, i_28)
+    };
+    defc fc_13() = {
+      defc tc_13() = {
+        deff fun$3(rc_30, x, y) = { valp v_22 = x + y; rc_30(v_22) };
+        defc rc_31(r_13) = { aux(rc_23, fun$3, r_13) };
+        charDigitToInt(rc_31, c)
+      };
+      defc fc_12() = { vall i_29 = 0; rc_23(i_29) };
+      defc rc_32(r_14) = {
+        vall i_30 = false;
+        if (r_14 != i_30) tc_13 else fc_12
+      };
+      isCharDigit(rc_32, c)
+    };
+    vall i_31 = '-';
+    if (c == i_31) tc_12 else fc_13
+  };
+  charRead(rc_33)
+}; 
+deff printInt(rc_34, i) = {
+  defc ic_3(v_23) = {
+    valp x$4 = id(v_23);
+    deff aux(rc_35, i) = {
+      defc ic_1(v_24) = {
+        valp x$5 = id(v_24);
+        valp v_26 = -i;
+        vall i_32 = 10;
+        valp v_25 = v_26 % i_32;
+        defc rc_36(r_15) = { printChar(rc_35, r_15) };
+        intCharDigit(rc_36, v_25)
+      };
+      defc tc_14() = {
+        vall i_33 = 9;
+        valp v_28 = i + i_33;
+        vall i_34 = 10;
+        valp v_27 = v_28 / i_34;
+        aux(ic_1, v_27)
+      };
+      defc fc_14() = { vall i_35 = (); ic_1(i_35) };
+      vall i_36 = 10;
+      valp v_29 = -i_36;
+      if (i <= v_29) tc_14 else fc_14
+    };
+    defc ic_2(v_30) = { aux(rc_34, v_30) };
+    defc tc_15() = { ic_2(i) };
+    defc fc_15() = { valp v_31 = -i; ic_2(v_31) };
+    vall i_37 = 0;
+    if (i < i_37) tc_15 else fc_15
+  };
+  defc tc_16() = { vall i_38 = '-'; printChar(ic_3, i_38) };
+  defc fc_16() = { vall i_39 = (); ic_3(i_39) };
+  vall i_40 = 0;
+  if (i < i_40) tc_16 else fc_16
+}; 
+deff pairDeriveEq(rc_37, eq1, eq2) = {
+  deff fun$6(rc_38, p1, p2) = {
+    defc tc_17() = {
+      vall i_41 = 1;
+      valp v_32 = block-get(p1, i_41);
+      vall i_42 = 1;
+      valp v_33 = block-get(p2, i_42);
+      eq2(rc_38, v_32, v_33)
+    };
+    defc fc_17() = { vall i_43 = false; rc_38(i_43) };
+    vall i_44 = 0;
+    valp v_34 = block-get(p1, i_44);
+    vall i_45 = 0;
+    valp v_35 = block-get(p2, i_45);
+    defc rc_39(r_16) = {
+      vall i_46 = false;
+      if (r_16 != i_46) tc_17 else fc_17
+    };
+    eq1(rc_39, v_34, v_35)
+  };
+  rc_37(fun$6)
+}; 
+deff pairDeriveLt(rc_40, lt1, lt2) = {
+  deff fun$7(rc_41, p1, p2) = {
+    defc tc_18() = { vall i_47 = true; rc_41(i_47) };
+    defc fc_19() = {
+      defc tc_19() = {
+        vall i_48 = 1;
+        valp v_36 = block-get(p1, i_48);
+        vall i_49 = 1;
+        valp v_37 = block-get(p2, i_49);
+        lt2(rc_41, v_36, v_37)
+      };
+      defc fc_18() = { vall i_50 = false; rc_41(i_50) };
+      vall i_51 = 0;
+      valp v_38 = block-get(p1, i_51);
+      vall i_52 = 0;
+      valp v_39 = block-get(p2, i_52);
+      defc rc_42(r_17) = {
+        vall i_53 = false;
+        if (r_17 != i_53) fc_18 else tc_19
+      };
+      lt1(rc_42, v_38, v_39)
+    };
+    vall i_54 = 0;
+    valp v_40 = block-get(p1, i_54);
+    vall i_55 = 0;
+    valp v_41 = block-get(p2, i_55);
+    defc rc_43(r_18) = {
+      vall i_56 = false;
+      if (r_18 != i_56) tc_18 else fc_19
+    };
+    lt1(rc_43, v_40, v_41)
+  };
+  rc_40(fun$7)
+}; 
+deff listMake1(rc_44, e1) = {
+  vall i_57 = 2;
+  valp v_42 = block-alloc-3(i_57);
+  valp l_461 = id(v_42);
+  vall i_58 = 0;
+  valp v_43 = block-set(l_461, i_58, e1);
+  valp x_462 = id(v_43);
+  vall i_59 = 1;
+  vall i_60 = 0;
+  valp v_45 = block-alloc-2(i_60);
+  valp v_44 = block-set(l_461, i_59, v_45);
+  valp x_463 = id(v_44);
+  rc_44(l_461)
+}; 
+deff listMake2(rc_45, e1, e2) = {
+  vall i_61 = 2;
+  valp v_46 = block-alloc-3(i_61);
+  valp l_464 = id(v_46);
+  vall i_62 = 0;
+  valp v_47 = block-set(l_464, i_62, e1);
+  valp x_465 = id(v_47);
+  vall i_63 = 1;
+  defc rc_46(r_19) = {
+    valp v_48 = block-set(l_464, i_63, r_19);
+    valp x_466 = id(v_48);
+    rc_45(l_464)
+  };
+  listMake1(rc_46, e2)
+}; 
+deff listMake3(rc_47, e1, e2, e3) = {
+  vall i_64 = 2;
+  valp v_49 = block-alloc-3(i_64);
+  valp l_467 = id(v_49);
+  vall i_65 = 0;
+  valp v_50 = block-set(l_467, i_65, e1);
+  valp x_468 = id(v_50);
+  vall i_66 = 1;
+  defc rc_48(r_20) = {
+    valp v_51 = block-set(l_467, i_66, r_20);
+    valp x_469 = id(v_51);
+    rc_47(l_467)
+  };
+  listMake2(rc_48, e2, e3)
+}; 
+deff listMake4(rc_49, e1, e2, e3, e4) = {
+  vall i_67 = 2;
+  valp v_52 = block-alloc-3(i_67);
+  valp l_470 = id(v_52);
+  vall i_68 = 0;
+  valp v_53 = block-set(l_470, i_68, e1);
+  valp x_471 = id(v_53);
+  vall i_69 = 1;
+  defc rc_50(r_21) = {
+    valp v_54 = block-set(l_470, i_69, r_21);
+    valp x_472 = id(v_54);
+    rc_49(l_470)
+  };
+  listMake3(rc_50, e2, e3, e4)
+}; 
+deff listMake5(rc_51, e1, e2, e3, e4, e5) = {
+  vall i_70 = 2;
+  valp v_55 = block-alloc-3(i_70);
+  valp l_473 = id(v_55);
+  vall i_71 = 0;
+  valp v_56 = block-set(l_473, i_71, e1);
+  valp x_474 = id(v_56);
+  vall i_72 = 1;
+  defc rc_52(r_22) = {
+    valp v_57 = block-set(l_473, i_72, r_22);
+    valp x_475 = id(v_57);
+    rc_51(l_473)
+  };
+  listMake4(rc_52, e2, e3, e4, e5)
+}; 
+deff listMake6(rc_53, e1, e2, e3, e4, e5, e6) = {
+  vall i_73 = 2;
+  valp v_58 = block-alloc-3(i_73);
+  valp l_476 = id(v_58);
+  vall i_74 = 0;
+  valp v_59 = block-set(l_476, i_74, e1);
+  valp x_477 = id(v_59);
+  vall i_75 = 1;
+  defc rc_54(r_23) = {
+    valp v_60 = block-set(l_476, i_75, r_23);
+    valp x_478 = id(v_60);
+    rc_53(l_476)
+  };
+  listMake5(rc_54, e2, e3, e4, e5, e6)
+}; 
+deff listMake7(rc_55, e1, e2, e3, e4, e5, e6, e7) = {
+  vall i_76 = 2;
+  valp v_61 = block-alloc-3(i_76);
+  valp l_479 = id(v_61);
+  vall i_77 = 0;
+  valp v_62 = block-set(l_479, i_77, e1);
+  valp x_480 = id(v_62);
+  vall i_78 = 1;
+  defc rc_56(r_24) = {
+    valp v_63 = block-set(l_479, i_78, r_24);
+    valp x_481 = id(v_63);
+    rc_55(l_479)
+  };
+  listMake6(rc_56, e2, e3, e4, e5, e6, e7)
+}; 
+deff listMake8(rc_57, e1, e2, e3, e4, e5, e6, e7, e8) = {
+  vall i_79 = 2;
+  valp v_64 = block-alloc-3(i_79);
+  valp l_482 = id(v_64);
+  vall i_80 = 0;
+  valp v_65 = block-set(l_482, i_80, e1);
+  valp x_483 = id(v_65);
+  vall i_81 = 1;
+  defc rc_58(r_25) = {
+    valp v_66 = block-set(l_482, i_81, r_25);
+    valp x_484 = id(v_66);
+    rc_57(l_482)
+  };
+  listMake7(rc_58, e2, e3, e4, e5, e6, e7, e8)
+}; 
+deff listTabulate(rc_59, n, f) = {
+  deff aux(rc_60, i, l) = {
+    defc tc_20() = { rc_60(l) };
+    defc fc_20() = {
+      vall i_82 = 1;
+      valp v_67 = i - i_82;
+      vall i_83 = 2;
+      valp v_68 = block-alloc-3(i_83);
+      valp l_488 = id(v_68);
+      vall i_84 = 0;
+      vall i_85 = 1;
+      valp v_70 = i - i_85;
+      defc rc_61(r_26) = {
+        valp v_69 = block-set(l_488, i_84, r_26);
+        valp x_489 = id(v_69);
+        vall i_86 = 1;
+        valp v_71 = block-set(l_488, i_86, l);
+        valp x_490 = id(v_71);
+        aux(rc_60, v_67, l_488)
+      };
+      f(rc_61, v_70)
+    };
+    vall i_87 = 0;
+    if (i == i_87) tc_20 else fc_20
+  };
+  vall i_88 = 0;
+  valp v_72 = block-alloc-2(i_88);
+  aux(rc_59, n, v_72)
+}; 
+deff listLength(rc_62, l) = {
+  defc tc_21() = { vall i_89 = 0; rc_62(i_89) };
+  defc fc_21() = {
+    vall i_90 = 1;
+    vall i_91 = 1;
+    valp v_74 = block-get(l, i_91);
+    defc rc_63(r_27) = { valp v_73 = i_90 + r_27; rc_62(v_73) };
+    listLength(rc_63, v_74)
+  };
+  valp v_75 = block-tag(l);
+  vall i_92 = 2;
+  if (v_75 == i_92) tc_21 else fc_21
+}; 
+deff listForeach(rc_64, f, l) = {
+  defc tc_22() = {
+    vall i_93 = 0;
+    valp v_76 = block-get(l, i_93);
+    defc rc_65(r_28) = {
+      valp x$8 = id(r_28);
+      vall i_94 = 1;
+      valp v_77 = block-get(l, i_94);
+      listForeach(rc_64, f, v_77)
+    };
+    f(rc_65, v_76)
+  };
+  defc fc_22() = { vall i_95 = (); rc_64(i_95) };
+  valp v_78 = block-tag(l);
+  vall i_96 = 2;
+  if (v_78 == i_96) fc_22 else tc_22
+}; 
+deff listMap(rc_66, f, l) = {
+  defc tc_23() = {
+    vall i_97 = 0;
+    valp v_79 = block-alloc-2(i_97);
+    rc_66(v_79)
+  };
+  defc fc_23() = {
+    vall i_98 = 2;
+    valp v_80 = block-alloc-3(i_98);
+    valp l_491 = id(v_80);
+    vall i_99 = 0;
+    vall i_100 = 0;
+    valp v_82 = block-get(l, i_100);
+    defc rc_68(r_29) = {
+      valp v_81 = block-set(l_491, i_99, r_29);
+      valp x_492 = id(v_81);
+      vall i_101 = 1;
+      vall i_102 = 1;
+      valp v_84 = block-get(l, i_102);
+      defc rc_67(r_30) = {
+        valp v_83 = block-set(l_491, i_101, r_30);
+        valp x_493 = id(v_83);
+        rc_66(l_491)
+      };
+      listMap(rc_67, f, v_84)
+    };
+    f(rc_68, v_82)
+  };
+  valp v_85 = block-tag(l);
+  vall i_103 = 2;
+  if (v_85 == i_103) tc_23 else fc_23
+}; 
+deff listFoldLeft(rc_69, f, z, l) = {
+  defc tc_24() = { rc_69(z) };
+  defc fc_24() = {
+    vall i_104 = 0;
+    valp v_86 = block-get(l, i_104);
+    defc rc_70(r_31) = {
+      vall i_105 = 1;
+      valp v_87 = block-get(l, i_105);
+      listFoldLeft(rc_69, f, r_31, v_87)
+    };
+    f(rc_70, z, v_86)
+  };
+  valp v_88 = block-tag(l);
+  vall i_106 = 2;
+  if (v_88 == i_106) tc_24 else fc_24
+}; 
+deff listFoldRight(rc_71, f, z, l) = {
+  defc tc_25() = { rc_71(z) };
+  defc fc_25() = {
+    vall i_107 = 0;
+    valp v_89 = block-get(l, i_107);
+    vall i_108 = 1;
+    valp v_90 = block-get(l, i_108);
+    defc rc_72(r_32) = { f(rc_71, v_89, r_32) };
+    listFoldRight(rc_72, f, z, v_90)
+  };
+  valp v_91 = block-tag(l);
+  vall i_109 = 2;
+  if (v_91 == i_109) tc_25 else fc_25
+}; 
+deff listEvery(rc_73, p, l) = {
+  defc tc_26() = { vall i_110 = true; rc_73(i_110) };
+  defc fc_27() = {
+    defc tc_27() = {
+      vall i_111 = 1;
+      valp v_92 = block-get(l, i_111);
+      listEvery(rc_73, p, v_92)
+    };
+    defc fc_26() = { vall i_112 = false; rc_73(i_112) };
+    vall i_113 = 0;
+    valp v_93 = block-get(l, i_113);
+    defc rc_74(r_33) = {
+      vall i_114 = false;
+      if (r_33 != i_114) tc_27 else fc_26
+    };
+    p(rc_74, v_93)
+  };
+  valp v_94 = block-tag(l);
+  vall i_115 = 2;
+  if (v_94 == i_115) tc_26 else fc_27
+}; 
+deff listAny(rc_75, p, l) = {
+  defc tc_29() = {
+    defc tc_28() = { vall i_116 = true; rc_75(i_116) };
+    defc fc_28() = {
+      vall i_117 = 1;
+      valp v_95 = block-get(l, i_117);
+      listAny(rc_75, p, v_95)
+    };
+    vall i_118 = 0;
+    valp v_96 = block-get(l, i_118);
+    defc rc_76(r_34) = {
+      vall i_119 = false;
+      if (r_34 != i_119) tc_28 else fc_28
+    };
+    p(rc_76, v_96)
+  };
+  defc fc_29() = { vall i_120 = false; rc_75(i_120) };
+  valp v_97 = block-tag(l);
+  vall i_121 = 2;
+  if (v_97 == i_121) fc_29 else tc_29
+}; 
+deff listFilter(rc_77, p, l) = {
+  deff fun$9(rc_78, e, r) = {
+    defc tc_30() = {
+      vall i_122 = 2;
+      valp v_98 = block-alloc-3(i_122);
+      valp l_500 = id(v_98);
+      vall i_123 = 0;
+      valp v_99 = block-set(l_500, i_123, e);
+      valp x_501 = id(v_99);
+      vall i_124 = 1;
+      valp v_100 = block-set(l_500, i_124, r);
+      valp x_502 = id(v_100);
+      rc_78(l_500)
+    };
+    defc fc_30() = { rc_78(r) };
+    defc rc_79(r_35) = {
+      vall i_125 = false;
+      if (r_35 != i_125) tc_30 else fc_30
+    };
+    p(rc_79, e)
+  };
+  vall i_126 = 0;
+  valp v_101 = block-alloc-2(i_126);
+  listFoldRight(rc_77, fun$9, v_101, l)
+}; 
+deff listPartition(rc_80, p, l) = {
+  deff fun$10(rc_81, e, yn) = {
+    defc tc_31() = {
+      vall i_127 = 2;
+      valp v_102 = block-alloc-0(i_127);
+      valp p_536 = id(v_102);
+      vall i_128 = 0;
+      vall i_129 = 2;
+      valp v_104 = block-alloc-3(i_129);
+      valp l_533 = id(v_104);
+      vall i_130 = 0;
+      valp v_105 = block-set(l_533, i_130, e);
+      valp x_534 = id(v_105);
+      vall i_131 = 1;
+      vall i_132 = 0;
+      valp v_107 = block-get(yn, i_132);
+      valp v_106 = block-set(l_533, i_131, v_107);
+      valp x_535 = id(v_106);
+      valp v_103 = block-set(p_536, i_128, l_533);
+      valp x_537 = id(v_103);
+      vall i_133 = 1;
+      vall i_134 = 1;
+      valp v_109 = block-get(yn, i_134);
+      valp v_108 = block-set(p_536, i_133, v_109);
+      valp x_538 = id(v_108);
+      rc_81(p_536)
+    };
+    defc fc_31() = {
+      vall i_135 = 2;
+      valp v_110 = block-alloc-0(i_135);
+      valp p_530 = id(v_110);
+      vall i_136 = 0;
+      vall i_137 = 0;
+      valp v_112 = block-get(yn, i_137);
+      valp v_111 = block-set(p_530, i_136, v_112);
+      valp x_531 = id(v_111);
+      vall i_138 = 1;
+      vall i_139 = 2;
+      valp v_114 = block-alloc-3(i_139);
+      valp l_527 = id(v_114);
+      vall i_140 = 0;
+      valp v_115 = block-set(l_527, i_140, e);
+      valp x_528 = id(v_115);
+      vall i_141 = 1;
+      vall i_142 = 1;
+      valp v_117 = block-get(yn, i_142);
+      valp v_116 = block-set(l_527, i_141, v_117);
+      valp x_529 = id(v_116);
+      valp v_113 = block-set(p_530, i_138, l_527);
+      valp x_532 = id(v_113);
+      rc_81(p_530)
+    };
+    defc rc_82(r_36) = {
+      vall i_143 = false;
+      if (r_36 != i_143) tc_31 else fc_31
+    };
+    p(rc_82, e)
+  };
+  vall i_144 = 2;
+  valp v_118 = block-alloc-0(i_144);
+  valp p_539 = id(v_118);
+  vall i_145 = 0;
+  vall i_146 = 0;
+  valp v_120 = block-alloc-2(i_146);
+  valp v_119 = block-set(p_539, i_145, v_120);
+  valp x_540 = id(v_119);
+  vall i_147 = 1;
+  vall i_148 = 0;
+  valp v_122 = block-alloc-2(i_148);
+  valp v_121 = block-set(p_539, i_147, v_122);
+  valp x_541 = id(v_121);
+  listFoldRight(rc_80, fun$10, p_539, l)
+}; 
+deff listTake(rc_83, l, n) = {
+  defc tc_32() = {
+    vall i_149 = 0;
+    valp v_123 = block-alloc-2(i_149);
+    rc_83(v_123)
+  };
+  defc fc_32() = {
+    vall i_150 = 2;
+    valp v_124 = block-alloc-3(i_150);
+    valp l_542 = id(v_124);
+    vall i_151 = 0;
+    vall i_152 = 0;
+    valp v_126 = block-get(l, i_152);
+    valp v_125 = block-set(l_542, i_151, v_126);
+    valp x_543 = id(v_125);
+    vall i_153 = 1;
+    vall i_154 = 1;
+    valp v_128 = block-get(l, i_154);
+    vall i_155 = 1;
+    valp v_129 = n - i_155;
+    defc rc_84(r_37) = {
+      valp v_127 = block-set(l_542, i_153, r_37);
+      valp x_544 = id(v_127);
+      rc_83(l_542)
+    };
+    listTake(rc_84, v_128, v_129)
+  };
+  defc ec_1() = {
+    valp v_130 = block-tag(l);
+    vall i_156 = 2;
+    if (v_130 == i_156) tc_32 else fc_32
+  };
+  vall i_157 = 0;
+  if (i_157 == n) tc_32 else ec_1
+}; 
+deff listDrop(rc_85, l, n) = {
+  defc tc_33() = { rc_85(l) };
+  defc fc_33() = {
+    vall i_158 = 1;
+    valp v_131 = block-get(l, i_158);
+    vall i_159 = 1;
+    valp v_132 = n - i_159;
+    listDrop(rc_85, v_131, v_132)
+  };
+  defc ec_2() = {
+    valp v_133 = block-tag(l);
+    vall i_160 = 2;
+    if (v_133 == i_160) tc_33 else fc_33
+  };
+  vall i_161 = 0;
+  if (i_161 == n) tc_33 else ec_2
+}; 
+deff listNth(rc_86, l, n) = {
+  defc rc_87(r_38) = {
+    vall i_162 = 0;
+    valp v_134 = block-get(r_38, i_162);
+    rc_86(v_134)
+  };
+  listDrop(rc_87, l, n)
+}; 
+deff listReverse(rc_88, l) = {
+  deff fun$11(rc_89, t, h) = {
+    vall i_163 = 2;
+    valp v_135 = block-alloc-3(i_163);
+    valp l_551 = id(v_135);
+    vall i_164 = 0;
+    valp v_136 = block-set(l_551, i_164, h);
+    valp x_552 = id(v_136);
+    vall i_165 = 1;
+    valp v_137 = block-set(l_551, i_165, t);
+    valp x_553 = id(v_137);
+    rc_89(l_551)
+  };
+  vall i_166 = 0;
+  valp v_138 = block-alloc-2(i_166);
+  listFoldLeft(rc_88, fun$11, v_138, l)
+}; 
+deff listAppend(rc_90, l1, l2) = {
+  defc tc_34() = { rc_90(l2) };
+  defc fc_35() = {
+    defc tc_35() = { rc_90(l1) };
+    defc fc_34() = {
+      vall i_167 = 2;
+      valp v_139 = block-alloc-3(i_167);
+      valp l_554 = id(v_139);
+      vall i_168 = 0;
+      vall i_169 = 0;
+      valp v_141 = block-get(l1, i_169);
+      valp v_140 = block-set(l_554, i_168, v_141);
+      valp x_555 = id(v_140);
+      vall i_170 = 1;
+      vall i_171 = 1;
+      valp v_143 = block-get(l1, i_171);
+      defc rc_91(r_39) = {
+        valp v_142 = block-set(l_554, i_170, r_39);
+        valp x_556 = id(v_142);
+        rc_90(l_554)
+      };
+      listAppend(rc_91, v_143, l2)
+    };
+    valp v_144 = block-tag(l2);
+    vall i_172 = 2;
+    if (v_144 == i_172) tc_35 else fc_34
+  };
+  valp v_145 = block-tag(l1);
+  vall i_173 = 2;
+  if (v_145 == i_173) tc_34 else fc_35
+}; 
+deff listZip(rc_92, l1, l2) = {
+  defc tc_36() = {
+    vall i_174 = 0;
+    valp v_146 = block-alloc-2(i_174);
+    rc_92(v_146)
+  };
+  defc fc_36() = {
+    vall i_175 = 2;
+    valp v_147 = block-alloc-3(i_175);
+    valp l_560 = id(v_147);
+    vall i_176 = 0;
+    vall i_177 = 2;
+    valp v_149 = block-alloc-0(i_177);
+    valp p_557 = id(v_149);
+    vall i_178 = 0;
+    vall i_179 = 0;
+    valp v_151 = block-get(l1, i_179);
+    valp v_150 = block-set(p_557, i_178, v_151);
+    valp x_558 = id(v_150);
+    vall i_180 = 1;
+    vall i_181 = 0;
+    valp v_153 = block-get(l2, i_181);
+    valp v_152 = block-set(p_557, i_180, v_153);
+    valp x_559 = id(v_152);
+    valp v_148 = block-set(l_560, i_176, p_557);
+    valp x_561 = id(v_148);
+    vall i_182 = 1;
+    vall i_183 = 1;
+    valp v_155 = block-get(l1, i_183);
+    vall i_184 = 1;
+    valp v_156 = block-get(l2, i_184);
+    defc rc_93(r_40) = {
+      valp v_154 = block-set(l_560, i_182, r_40);
+      valp x_562 = id(v_154);
+      rc_92(l_560)
+    };
+    listZip(rc_93, v_155, v_156)
+  };
+  defc ec_3() = {
+    valp v_157 = block-tag(l2);
+    vall i_185 = 2;
+    if (v_157 == i_185) tc_36 else fc_36
+  };
+  valp v_158 = block-tag(l1);
+  vall i_186 = 2;
+  if (v_158 == i_186) tc_36 else ec_3
+}; 
+deff printString(rc_94, s) = {
+  vall s_1 = 1;
+  valp idx = block-alloc-242(s_1);
+  vall z_1 = 0;
+  vall i_187 = 0;
+  valp d_1 = block-set(idx, z_1, i_187);
+  defc loop_1(d_2) = {
+    defc c_1() = { vall i_188 = (); rc_94(i_188) };
+    defc ct_1() = {
+      vall z_2 = 0;
+      valp v_160 = block-get(idx, z_2);
+      valp v_159 = block-get(s, v_160);
+      defc rc_95(r_41) = {
+        valp x$12 = id(r_41);
+        vall z_3 = 0;
+        vall z_4 = 0;
+        valp v_162 = block-get(idx, z_4);
+        vall i_189 = 1;
+        valp v_161 = v_162 + i_189;
+        valp d_4 = block-set(idx, z_3, v_161);
+        valp x_563 = id(v_161);
+        vall i_190 = ();
+        loop_1(i_190)
+      };
+      printChar(rc_95, v_159)
+    };
+    vall z_5 = 0;
+    valp v_163 = block-get(idx, z_5);
+    valp v_164 = block-length(s);
+    if (v_163 < v_164) ct_1 else c_1
+  };
+  vall d_3 = ();
+  loop_1(d_3)
+}; 
+deff stringConcat(rc_96, s1, s2) = {
+  valp v_167 = block-length(s1);
+  valp v_168 = block-length(s2);
+  valp v_166 = v_167 + v_168;
+  valp v_165 = block-alloc-1(v_166);
+  valp s3 = id(v_165);
+  vall s_2 = 1;
+  valp idx = block-alloc-242(s_2);
+  vall z_6 = 0;
+  vall i_191 = 0;
+  valp d_5 = block-set(idx, z_6, i_191);
+  defc loop_2(d_6) = {
+    defc c_3() = {
+      vall z_7 = 0;
+      vall i_192 = 0;
+      valp d_8 = block-set(idx, z_7, i_192);
+      valp x$14 = id(i_192);
+      defc loop_3(d_9) = {
+        defc c_2() = { rc_96(s3) };
+        defc ct_2() = {
+          valp v_171 = block-length(s1);
+          vall z_8 = 0;
+          valp v_172 = block-get(idx, z_8);
+          valp v_170 = v_171 + v_172;
+          vall z_9 = 0;
+          valp v_174 = block-get(idx, z_9);
+          valp v_173 = block-get(s2, v_174);
+          valp v_169 = block-set(s3, v_170, v_173);
+          valp x$15 = id(v_169);
+          vall z_10 = 0;
+          vall z_11 = 0;
+          valp v_176 = block-get(idx, z_11);
+          vall i_193 = 1;
+          valp v_175 = v_176 + i_193;
+          valp d_11 = block-set(idx, z_10, v_175);
+          valp x_565 = id(v_175);
+          vall i_194 = ();
+          loop_3(i_194)
+        };
+        vall z_12 = 0;
+        valp v_177 = block-get(idx, z_12);
+        valp v_178 = block-length(s2);
+        if (v_177 < v_178) ct_2 else c_2
+      };
+      vall d_10 = ();
+      loop_3(d_10)
+    };
+    defc ct_3() = {
+      vall z_13 = 0;
+      valp v_180 = block-get(idx, z_13);
+      vall z_14 = 0;
+      valp v_182 = block-get(idx, z_14);
+      valp v_181 = block-get(s1, v_182);
+      valp v_179 = block-set(s3, v_180, v_181);
+      valp x$13 = id(v_179);
+      vall z_15 = 0;
+      vall z_16 = 0;
+      valp v_184 = block-get(idx, z_16);
+      vall i_195 = 1;
+      valp v_183 = v_184 + i_195;
+      valp d_12 = block-set(idx, z_15, v_183);
+      valp x_564 = id(v_183);
+      vall i_196 = ();
+      loop_2(i_196)
+    };
+    vall z_17 = 0;
+    valp v_185 = block-get(idx, z_17);
+    valp v_186 = block-length(s1);
+    if (v_185 < v_186) ct_3 else c_3
+  };
+  vall d_7 = ();
+  loop_2(d_7)
+}; 
+deff makeRNG(rc_97, seed) = {
+  vall i_197 = 1;
+  valp v_187 = block-alloc-1(i_197);
+  valp rng = id(v_187);
+  vall i_198 = 0;
+  vall i_199 = 65535;
+  valp v_189 = seed & i_199;
+  valp v_188 = block-set(rng, i_198, v_189);
+  valp x$16 = id(v_188);
+  rc_97(rng)
+}; 
+deff rngGetState(rc_98, rng) = {
+  vall i_200 = 0;
+  valp v_190 = block-get(rng, i_200);
+  rc_98(v_190)
+}; 
+deff rngSetState(rc_99, rng, state) = {
+  vall i_201 = 0;
+  vall i_202 = 65535;
+  valp v_192 = state & i_202;
+  valp v_191 = block-set(rng, i_201, v_192);
+  rc_99(v_191)
+}; 
+deff rngRotateRight8(rc_100, x, y) = {
+  valp v_195 = x >> y;
+  vall i_203 = 8;
+  valp v_197 = i_203 - y;
+  valp v_196 = x << v_197;
+  valp v_194 = v_195 | v_196;
+  vall i_204 = 255;
+  valp v_193 = v_194 & i_204;
+  rc_100(v_193)
+}; 
+deff rngStep(rc_101, rng) = {
+  defc rc_102(r_42) = {
+    vall i_205 = 12829;
+    valp v_199 = r_42 * i_205;
+    vall i_206 = 47989;
+    valp v_198 = v_199 + i_206;
+    rngSetState(rc_101, rng, v_198)
+  };
+  rngGetState(rc_102, rng)
+}; 
+deff rngOutput(rc_103, rng) = {
+  defc rc_104(r_43) = {
+    valp state = id(r_43);
+    vall i_207 = 255;
+    vall i_208 = 5;
+    valp v_203 = state >> i_208;
+    valp v_202 = state ^ v_203;
+    vall i_209 = 5;
+    valp v_201 = v_202 >> i_209;
+    valp v_200 = i_207 & v_201;
+    vall i_210 = 13;
+    valp v_204 = state >> i_210;
+    rngRotateRight8(rc_103, v_200, v_204)
+  };
+  rngGetState(rc_104, rng)
+}; 
+deff rngNextInt8(rc_105, rng) = {
+  defc rc_107(r_44) = {
+    valp i = id(r_44);
+    defc rc_106(r_45) = { valp x$17 = id(r_45); rc_105(i) };
+    rngStep(rc_106, rng)
+  };
+  rngOutput(rc_107, rng)
+}; 
+deff rngNextInt(rc_108, rng) = {
+  defc rc_112(r_46) = {
+    valp b0 = id(r_46);
+    defc rc_111(r_47) = {
+      valp b1 = id(r_47);
+      defc rc_110(r_48) = {
+        valp b2 = id(r_48);
+        defc rc_109(r_49) = {
+          valp b3 = id(r_49);
+          vall i_211 = 24;
+          valp v_208 = b0 << i_211;
+          vall i_212 = 16;
+          valp v_209 = b1 << i_212;
+          valp v_207 = v_208 | v_209;
+          vall i_213 = 8;
+          valp v_210 = b2 << i_213;
+          valp v_206 = v_207 | v_210;
+          valp v_205 = v_206 | b3;
+          rc_108(v_205)
+        };
+        rngNextInt8(rc_109, rng)
+      };
+      rngNextInt8(rc_110, rng)
+    };
+    rngNextInt8(rc_111, rng)
+  };
+  rngNextInt8(rc_112, rng)
+}; 
+deff arrayTabulate(rc_113, n, f) = {
+  valp v_211 = block-alloc-1(n);
+  valp v = id(v_211);
+  vall s_3 = 1;
+  valp i = block-alloc-242(s_3);
+  vall z_18 = 0;
+  vall i_214 = 0;
+  valp d_13 = block-set(i, z_18, i_214);
+  defc loop_4(d_14) = {
+    defc c_4() = { rc_113(v) };
+    defc ct_4() = {
+      vall z_19 = 0;
+      valp v_213 = block-get(i, z_19);
+      vall z_20 = 0;
+      valp v_214 = block-get(i, z_20);
+      defc rc_114(r_50) = {
+        valp v_212 = block-set(v, v_213, r_50);
+        valp x$18 = id(v_212);
+        vall z_21 = 0;
+        vall z_22 = 0;
+        valp v_216 = block-get(i, z_22);
+        vall i_215 = 1;
+        valp v_215 = v_216 + i_215;
+        valp d_16 = block-set(i, z_21, v_215);
+        valp x_566 = id(v_215);
+        vall i_216 = ();
+        loop_4(i_216)
+      };
+      f(rc_114, v_214)
+    };
+    vall z_23 = 0;
+    valp v_217 = block-get(i, z_23);
+    if (v_217 < n) ct_4 else c_4
+  };
+  vall d_15 = ();
+  loop_4(d_15)
+}; 
+deff arraySwap(rc_115, v, i1, i2) = {
+  valp v_218 = block-get(v, i1);
+  valp t = id(v_218);
+  valp v_220 = block-get(v, i2);
+  valp v_219 = block-set(v, i1, v_220);
+  valp x$19 = id(v_219);
+  valp v_221 = block-set(v, i2, t);
+  rc_115(v_221)
+}; 
+deff arrayShuffle(rc_116, v, seed) = {
+  defc rc_119(r_51) = {
+    valp rng = id(r_51);
+    valp v_222 = block-length(v);
+    valp l = id(v_222);
+    vall s_4 = 1;
+    valp i = block-alloc-242(s_4);
+    vall z_24 = 0;
+    vall i_217 = 0;
+    valp d_17 = block-set(i, z_24, i_217);
+    defc loop_5(d_18) = {
+      defc c_5() = { vall i_218 = (); rc_116(i_218) };
+      defc ct_5() = {
+        vall z_25 = 0;
+        valp v_224 = block-get(i, z_25);
+        defc rc_118(r_52) = {
+          vall z_26 = 0;
+          valp v_227 = block-get(i, z_26);
+          valp v_226 = l - v_227;
+          valp v_225 = r_52 % v_226;
+          valp v_223 = v_224 + v_225;
+          valp j = id(v_223);
+          vall z_27 = 0;
+          valp v_228 = block-get(i, z_27);
+          defc rc_117(r_53) = {
+            valp x$20 = id(r_53);
+            vall z_28 = 0;
+            vall z_29 = 0;
+            valp v_230 = block-get(i, z_29);
+            vall i_219 = 1;
+            valp v_229 = v_230 + i_219;
+            valp d_20 = block-set(i, z_28, v_229);
+            valp x_567 = id(v_229);
+            vall i_220 = ();
+            loop_5(i_220)
+          };
+          arraySwap(rc_117, v, v_228, j)
+        };
+        rngNextInt(rc_118, rng)
+      };
+      vall z_30 = 0;
+      valp v_231 = block-get(i, z_30);
+      if (v_231 < l) ct_5 else c_5
+    };
+    vall d_19 = ();
+    loop_5(d_19)
+  };
+  makeRNG(rc_119, seed)
+}; 
+deff auxArrayPartition(rc_120, v, p, l, h) = {
+  deff loop(rc_121, l, h) = {
+    defc tc_37() = { rc_121(l) };
+    defc fc_39() = {
+      defc tc_38() = {
+        vall i_221 = 1;
+        valp v_232 = l + i_221;
+        loop(rc_121, v_232, h)
+      };
+      defc fc_38() = {
+        defc tc_39() = {
+          vall i_222 = 1;
+          valp v_233 = h - i_222;
+          loop(rc_121, l, v_233)
+        };
+        defc fc_37() = {
+          vall i_223 = 1;
+          valp v_234 = h - i_223;
+          defc rc_122(r_54) = {
+            valp x$21 = id(r_54);
+            vall i_224 = 1;
+            valp v_235 = l + i_224;
+            vall i_225 = 1;
+            valp v_236 = h + i_225;
+            loop(rc_121, v_235, v_236)
+          };
+          arraySwap(rc_122, v, l, v_234)
+        };
+        vall i_226 = 1;
+        valp v_238 = h - i_226;
+        valp v_237 = block-get(v, v_238);
+        defc rc_123(r_55) = {
+          vall i_227 = false;
+          if (r_55 != i_227) fc_37 else tc_39
+        };
+        p(rc_123, v_237)
+      };
+      valp v_239 = block-get(v, l);
+      defc rc_124(r_56) = {
+        vall i_228 = false;
+        if (r_56 != i_228) tc_38 else fc_38
+      };
+      p(rc_124, v_239)
+    };
+    if (l >= h) tc_37 else fc_39
+  };
+  loop(rc_120, l, h)
+}; 
+deff arrayPartition(rc_125, v, p) = {
+  vall i_229 = 0;
+  valp v_240 = block-length(v);
+  auxArrayPartition(rc_125, v, p, i_229, v_240)
+}; 
+deff arrayFoldLeft(rc_126, f, z, v) = {
+  vall s_5 = 1;
+  valp i = block-alloc-242(s_5);
+  vall z_31 = 0;
+  vall i_230 = 0;
+  valp d_21 = block-set(i, z_31, i_230);
+  valp v_241 = block-length(v);
+  valp l = id(v_241);
+  vall s_6 = 1;
+  valp zz = block-alloc-242(s_6);
+  vall z_32 = 0;
+  valp d_22 = block-set(zz, z_32, z);
+  defc loop_6(d_23) = {
+    defc c_6() = {
+      vall z_33 = 0;
+      valp v_242 = block-get(zz, z_33);
+      rc_126(v_242)
+    };
+    defc ct_6() = {
+      vall z_34 = 0;
+      vall z_35 = 0;
+      valp v_243 = block-get(zz, z_35);
+      vall z_36 = 0;
+      valp v_245 = block-get(i, z_36);
+      valp v_244 = block-get(v, v_245);
+      defc rc_127(r_57) = {
+        valp d_25 = block-set(zz, z_34, r_57);
+        valp x$22 = id(r_57);
+        vall z_37 = 0;
+        vall z_38 = 0;
+        valp v_247 = block-get(i, z_38);
+        vall i_231 = 1;
+        valp v_246 = v_247 + i_231;
+        valp d_26 = block-set(i, z_37, v_246);
+        valp x_568 = id(v_246);
+        vall i_232 = ();
+        loop_6(i_232)
+      };
+      f(rc_127, v_243, v_244)
+    };
+    vall z_39 = 0;
+    valp v_248 = block-get(i, z_39);
+    if (v_248 < l) ct_6 else c_6
+  };
+  vall d_24 = ();
+  loop_6(d_24)
+}; 
+deff arrayForeach(rc_128, f, v) = {
+  vall s_7 = 1;
+  valp i = block-alloc-242(s_7);
+  vall z_40 = 0;
+  vall i_233 = 0;
+  valp d_27 = block-set(i, z_40, i_233);
+  valp v_249 = block-length(v);
+  valp l = id(v_249);
+  defc loop_7(d_28) = {
+    defc c_7() = { vall i_234 = (); rc_128(i_234) };
+    defc ct_7() = {
+      vall z_41 = 0;
+      valp v_251 = block-get(i, z_41);
+      valp v_250 = block-get(v, v_251);
+      defc rc_129(r_58) = {
+        valp x$23 = id(r_58);
+        vall z_42 = 0;
+        vall z_43 = 0;
+        valp v_253 = block-get(i, z_43);
+        vall i_235 = 1;
+        valp v_252 = v_253 + i_235;
+        valp d_30 = block-set(i, z_42, v_252);
+        valp x_569 = id(v_252);
+        vall i_236 = ();
+        loop_7(i_236)
+      };
+      f(rc_129, v_250)
+    };
+    vall z_44 = 0;
+    valp v_254 = block-get(i, z_44);
+    if (v_254 < l) ct_7 else c_7
+  };
+  vall d_29 = ();
+  loop_7(d_29)
+}; 
+deff arraySort(rc_130, v, el) = {
+  deff qsort(rc_131, l, h) = {
+    defc tc_40() = {
+      valp v_255 = block-get(v, h);
+      valp p = id(v_255);
+      deff fun$24(rc_132, x) = { el(rc_132, x, p) };
+      valp pred = id(fun$24);
+      defc rc_135(r_59) = {
+        valp m = id(r_59);
+        defc rc_134(r_60) = {
+          valp x$25 = id(r_60);
+          vall i_237 = 1;
+          valp v_256 = m - i_237;
+          defc rc_133(r_61) = {
+            valp x$26 = id(r_61);
+            vall i_238 = 1;
+            valp v_257 = m + i_238;
+            qsort(rc_131, v_257, h)
+          };
+          qsort(rc_133, l, v_256)
+        };
+        arraySwap(rc_134, v, m, h)
+      };
+      auxArrayPartition(rc_135, v, pred, l, h)
+    };
+    defc fc_40() = { vall i_239 = (); rc_131(i_239) };
+    valp v_258 = h - l;
+    vall i_240 = 0;
+    if (v_258 > i_240) tc_40 else fc_40
+  };
+  vall i_241 = 0;
+  valp v_260 = block-length(v);
+  vall i_242 = 1;
+  valp v_259 = v_260 - i_242;
+  qsort(rc_130, i_241, v_259)
+}; 
+deff arrayBinarySearch(rc_136, v, e, el) = {
+  deff loop(rc_137, l, h) = {
+    defc tc_41() = {
+      vall i_243 = 1;
+      valp v_262 = -i_243;
+      valp v_261 = v_262 - l;
+      rc_137(v_261)
+    };
+    defc fc_43() = {
+      valp v_265 = h - l;
+      vall i_244 = 2;
+      valp v_264 = v_265 / i_244;
+      valp v_263 = l + v_264;
+      valp m = id(v_263);
+      valp v_266 = block-get(v, m);
+      valp me = id(v_266);
+      defc tc_42() = {
+        vall i_245 = 1;
+        valp v_267 = m - i_245;
+        loop(rc_137, l, v_267)
+      };
+      defc fc_42() = {
+        defc tc_43() = {
+          vall i_246 = 1;
+          valp v_268 = m + i_246;
+          loop(rc_137, v_268, h)
+        };
+        defc fc_41() = { rc_137(m) };
+        defc rc_138(r_62) = {
+          vall i_247 = false;
+          if (r_62 != i_247) tc_43 else fc_41
+        };
+        el(rc_138, me, e)
+      };
+      defc rc_139(r_63) = {
+        vall i_248 = false;
+        if (r_63 != i_248) tc_42 else fc_42
+      };
+      el(rc_139, e, me)
+    };
+    if (l > h) tc_41 else fc_43
+  };
+  vall i_249 = 0;
+  valp v_270 = block-length(v);
+  vall i_250 = 1;
+  valp v_269 = v_270 - i_250;
+  loop(rc_136, i_249, v_269)
+}; 
+deff arrayToList(rc_140, v) = {
+  deff loop(rc_141, i) = {
+    defc tc_44() = {
+      vall i_251 = 0;
+      valp v_271 = block-alloc-2(i_251);
+      rc_141(v_271)
+    };
+    defc fc_44() = {
+      vall i_252 = 2;
+      valp v_272 = block-alloc-3(i_252);
+      valp l_573 = id(v_272);
+      vall i_253 = 0;
+      valp v_274 = block-get(v, i);
+      valp v_273 = block-set(l_573, i_253, v_274);
+      valp x_574 = id(v_273);
+      vall i_254 = 1;
+      vall i_255 = 1;
+      valp v_276 = i - i_255;
+      defc rc_142(r_64) = {
+        valp v_275 = block-set(l_573, i_254, r_64);
+        valp x_575 = id(v_275);
+        rc_141(l_573)
+      };
+      loop(rc_142, v_276)
+    };
+    vall i_256 = 1;
+    valp v_277 = -i_256;
+    if (i == v_277) tc_44 else fc_44
+  };
+  valp v_279 = block-length(v);
+  vall i_257 = 1;
+  valp v_278 = v_279 - i_257;
+  loop(rc_140, v_278)
+}; 
+deff listToArray(rc_143, l) = {
+  defc rc_146(r_65) = {
+    valp n = id(r_65);
+    valp v_280 = block-alloc-1(n);
+    valp v = id(v_280);
+    deff loop(rc_144, i, l) = {
+      defc tc_45() = {
+        vall i_258 = 0;
+        valp v_282 = block-get(l, i_258);
+        valp v_281 = block-set(v, i, v_282);
+        valp x$27 = id(v_281);
+        vall i_259 = 1;
+        valp v_283 = i + i_259;
+        vall i_260 = 1;
+        valp v_284 = block-get(l, i_260);
+        loop(rc_144, v_283, v_284)
+      };
+      defc fc_45() = { vall i_261 = (); rc_144(i_261) };
+      if (i < n) tc_45 else fc_45
+    };
+    vall i_262 = 0;
+    defc rc_145(r_66) = { valp x$28 = id(r_66); rc_143(v) };
+    loop(rc_145, i_262, l)
+  };
+  listLength(rc_146, l)
+};
+vall i_263 = 0;
+valp x = id(i_263);
+deff f(rc_147) = { vall i_264 = 1; valp v_285 = x + i_264; rc_147(v_285) }; 
+deff g(rc_148) = {
+  defc rc_149(r_67) = {
+    vall i_265 = 1;
+    valp v_286 = r_67 + i_265;
+    rc_148(v_286)
+  };
+  f(rc_149)
+};
+defc rc_150(r_68) = { vall c0_1 = 0; c0_1 };
+g(rc_150)
+java.lang.RuntimeException: Nonzero exit code returned from runner: 1
+	at scala.sys.package$.error(package.scala:27)
+[trace] Stack trace suppressed: run last compile:run for the full output.
+[error] (compile:run) Nonzero exit code returned from runner: 1
+[error] Total time: 2 s, completed Nov 10, 2017 6:19:54 PM

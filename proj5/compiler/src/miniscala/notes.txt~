@@ -1,0 +1,19 @@
+Use helper methods in CPSValueRepresenter, CPSTreeModule.Tree
+
+use << and >> to implement multiplication and division by 2
+
+Can pass Map
+
+The value conversion phase takes a CPS program with high level primitives and out puts a program where all values are either integers, pointers or primitives corresponding to instructions on a microprocessor
+
+CPSLow code defined in CPS Primitives
+
+CPSLow semantics in CPSInterpreter.scala
+
+optimize shape of tree using miniscala.test.CPSValueRepresentatoin_Whitebox
+
+tips :
+   manually transform code to test understanding, write out test cases
+   implement value transformation first
+   closure conversion last
+   

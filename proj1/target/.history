@@ -1,0 +1,189 @@
+exit
+test
+run
+run Main
+help
+projects
+help
+about
+tasks
+show bgRun
+help
+about
+tasks
+compile
+clear
+tasks
+update
+tasks
+consoleQuick
+tasks
+console
+tasks
+doc
+package
+tests
+test
+help
+help shell
+help eval
+help apply
+reload
+settings
+show javaHome
+show name
+show scalaHome
+show autocompilerPlugins
+show autoCompilerPlugins
+show target
+show javaHome
+show javaSource
+show fork
+run
+help
+clear
+run
+clear
+run
+run 2+2
+run
+reload
+run
+run 2+4
+exit
+run
+run 2+2
+reload
+run
+reload
+run
+clear
+run
+clear
+exit
+ensimeConfig
+"ensime generagte"
+exit
+run 3+2
+exit
+run 3
+run 4
+exit
+clear
+Seq
+Seq("Hello", "Word")
+val x = Seq("Hello","World")
+ x = Seq("Hello","World")
+def x = Seq("Hello","World")
+quit
+exit
+test
+run 2+2
+run 2-2
+run 2
+run 2-2
+reload
+run 2-2
+run 3-3
+run 3*3
+run 33
+run 2+2-3
+run 2+2+2
+run 2-2+3
+run 2+2+3
+run 2+3+2+3
+run 2+3+2+3-10
+run 2+3-10
+run 2+3-9-1
+run 2*3
+run 2+2
+run 2*2
+run 2*2+2*2
+2*3-3*2
+run 2*3-3*2
+run 4*-3
+run 2+@
+run 2+2
+run 2*2+3
+(2+3)*2
+run (2+3)*2
+run 2*3
+run 2*3+(2+2)
+run 2*3*(2+2)
+run 2+2
+run (2+2)
+run -2
+run 0-2
+run 2-0
+run 0-2
+run (3+3)
+run (3+3
+run (3+3*(2+2
+3+-2
+run 3+-2
+run 3+-2*(3+3)
+run -(2+2)
+run -(2+3)
+run -(2*3)
+run -2
+run -(2+2)
+run -((2+2))
+run 2+7*8
+run 2+7*8*(3+(2+1))
+run 3/3
+run 3/30
+run 3/9
+run 13/4
+run 9/4
+run (5+3)/2
+(2*5-4*2+2*(9/4))/3
+run (2*5-4*2+2*(9/4))/3
+clean
+exit
+run 2+2
+run (2+2*3)/9
+run (2-3*5+8/9-1)/(2*(2+3))
+run (1+(1+(1+(1+1))))
+run 8/-1
+exit
+run -8/1
+run -8
+run 2+2
+run 2*3
+clear
+run 2+2
+run 3+2
+run 2+2
+run (2/3 + 1/2)
+run 2/3 + 1/2
+run 2+2
+clear
+run
+run 2*2
+run 2+2
+run (2-2 + 1/8 + 7/9 - (-8))/16
+run (2+2)
+run (2-2+1/8+7/9-(-8))/16
+run (2-2+1/8+7/9-(-8))/9
+run (2-2+1/8+7/9-(-8))/2
+run (2-2+1/8+7/9-(-8))/4
+8/-1
+run 9/-1
+-1/9
+run -1/9
+run 2_2
+run 2+2
+run 2-2
+run -1/9
+reload
+run -1/8
+-1/9
+run -1/9
+-1/9+1
+run -1/8+1
+run 2+2/-1
+exit
+run 2+2/-1
+run (2+2)/-1
+clean
+exit

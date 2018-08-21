@@ -1,0 +1,18 @@
+.text
+	.global entry_point
+
+entry_point:
+	push %rbp	# save stack frame for C convention
+	mov %rsp, %rbp
+
+	# beginning generated code
+	movq $4, %rax
+	# end generated code
+	# %rax contains the result
+
+	mov %rbp, %rsp	# reset frame
+	pop %rbp
+	ret
+
+
+
